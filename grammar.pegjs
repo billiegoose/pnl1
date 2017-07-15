@@ -12,12 +12,13 @@
   }
 }
 start
-	= (Identifier / Integer / Pair)+
+	= Expression +
 
 Expression
-  = Identifier
+  = Pair
+  / Breakpoint
+  / Identifier
   / Integer
-  / Pair
 
 Pair "pair"
   = "(" left:Expression right:Expression ")" _ { return Token('pair', {left, right}) }
@@ -30,6 +31,9 @@ Identifier "identifier"
 
 Integer "integer"
   = [0-9]+ _ { return Token('integer', parseInt(text(), 10)) }
+
+Breakpoint "breakpoint"
+  = "breakpoint" _ { return Token('breakpoint', 'debugger;\n') }
 
 _ "whitespace"
   = [ \t\n\r]* { return Token('whitespace') }
