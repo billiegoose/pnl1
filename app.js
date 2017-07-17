@@ -20,8 +20,7 @@ var myLayout = new GoldenLayout({
         content:[{
             type:'react-component',
             component: 'Article',
-            title: 'Article',
-            props: { label: 'A' }
+            props: { src: 'Article.md' }
         },{
             type: 'column',
             content:[{
