@@ -1,5 +1,5 @@
 {
-  "name": "pnl1",
+  "name": "pnl-1",
   "version": "0.0.0",
   "description": "Pretty Nice Language 1",
   "main": "index.js",
@@ -20,5 +20,8 @@
   "devDependencies": {
     "pegjs": "^0.10.0",
     "source-map": "^0.5.6"
+  },
+  "now": {
+    "alias": "pnl-1.now.sh"
   }
 }
