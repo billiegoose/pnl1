@@ -20,8 +20,5 @@
   "devDependencies": {
     "pegjs": "^0.10.0",
     "source-map": "^0.5.6"
-  },
-  "now": {
-    "alias": "pnl-1.now.sh"
   }
 }
