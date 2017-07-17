@@ -6,9 +6,9 @@ const destFile = 'source1.pnl.js'
 const mapFile = 'source1.pnl.js.map'
 const htmlFile = 'index.html'
 
-import grammerFileContent from './grammar.pegjs!text';
+import {parser} from './ParserGenerator.js'
 import source from './test/fixtures/source1.pnl!text';
-const parser = peg.generate(grammerFileContent)
+
 let result = parser.parse(source, {locations: true})
 
 import sourceMap from 'source-map/dist/source-map.min.js'

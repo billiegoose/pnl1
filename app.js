@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import GoldenLayout from 'golden-layout'
-import Article from './article.js'
+import Article from './Article.js'
+import ParserGenerator from './ParserGenerator.js'
 
 window.React = React
 window.ReactDOM = ReactDOM
@@ -18,18 +19,20 @@ var myLayout = new GoldenLayout({
         type: 'row',
         content:[{
             type:'react-component',
-            component: 'article',
+            component: 'Article',
             title: 'Article',
             props: { label: 'A' }
         },{
             type: 'column',
             content:[{
                 type:'react-component',
-                component: 'test-component',
+                component: 'ParserGenerator',
+                title: 'Parser Generator',
                 props: { label: 'B' }
             },{
                 type:'react-component',
                 component: 'test-component',
+                title: 'Source Code',
                 props: { label: 'C' }
             }]
         }]
@@ -37,7 +40,8 @@ var myLayout = new GoldenLayout({
 });
 
 myLayout.registerComponent( 'test-component', TestComponent );
-myLayout.registerComponent( 'article', Article );
+myLayout.registerComponent( 'Article', Article );
+myLayout.registerComponent( 'ParserGenerator', ParserGenerator );
 
 //Once all components are registered, call
 myLayout.init();
