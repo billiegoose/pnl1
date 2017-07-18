@@ -7,7 +7,7 @@ const mapFile = 'source1.pnl.js.map'
 const htmlFile = 'index.html'
 
 import {parser} from './ParserGenerator.js'
-import source from './test/fixtures/source1.pnl!text';
+import source from './source1.pnl!text';
 
 let result = parser.parse(source, {locations: true})
 

@@ -1,7 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import GoldenLayout from 'golden-layout'
+
+import fs from './builtins/fs.js'
+console.log(fs)
 import Article from './Article.js'
+import EditableTextFile from './EditableTextFile.js'
 import ParserGenerator from './ParserGenerator.js'
 
 window.React = React
@@ -27,12 +31,12 @@ var myLayout = new GoldenLayout({
                 type:'react-component',
                 component: 'ParserGenerator',
                 title: 'Parser Generator',
-                props: { label: 'B' }
+                props: { filepath: 'grammar.pegjs' }
             },{
                 type:'react-component',
-                component: 'test-component',
+                component: 'EditableTextFile',
                 title: 'Source Code',
-                props: { label: 'C' }
+                props: { filepath: 'source1.pnl' }
             }]
         }]
     }]
@@ -40,6 +44,7 @@ var myLayout = new GoldenLayout({
 
 myLayout.registerComponent( 'test-component', TestComponent );
 myLayout.registerComponent( 'Article', Article );
+myLayout.registerComponent( 'EditableTextFile', EditableTextFile );
 myLayout.registerComponent( 'ParserGenerator', ParserGenerator );
 
 //Once all components are registered, call

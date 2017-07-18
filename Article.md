@@ -8,7 +8,7 @@ The parser for the grammar is generated using [PEG.js](https://pegjs.org/). It's
 but generated on-the-fly in the browser. [Codegen 1]
 
 [browser.js](browser.js) imports PEG.js and [source-map](https://npm.im/source-map)
-and uses that to transform an input file ([test/fixtures/source1.pnl](test/fixtures/source1.pnl)) into a JavaScript file. [Codegen 2]
+and uses that to transform an input file ([source1.pnl](source1.pnl)) into a JavaScript file. [Codegen 2]
 
 That JavaScript file doesn't actually exist on the server. It's just in the browser's memory.
 The semantics of the transformation are: every AST node translates to `console.log(<the AST node>);` except for the
@@ -39,7 +39,7 @@ So the full set of operations (in order) is:
 11.  Then (mind blown) we use SystemJS *to import (and execute) the JavaScript "file" we just created*
 12.  Chrome DevTools re-constructs 'source1.pnl' from the JavaScript "file"
 13.  Part-way through the execution it hits the 'debugger' breakpoint, pauses execution, and highlights the corresponding link in the source file 'source1.pnl'.
-14.  Open DevTools. It should be paused at a breakpoint in the file `./test/fixtures/source1.pnl` under '(no domain)' in the Sources Navigator pane.
+14.  Open DevTools. It should be paused at a breakpoint in the file `./source1.pnl` under '(no domain)' in the Sources Navigator pane.
 15.  Step through `source1.pnl` one instruction at a time (F10). For each instruction, the AST node is printed in the console.
 
 We are debugging a script written in what is essentially a compile-to-JS language, using source maps and a JavaScript file
