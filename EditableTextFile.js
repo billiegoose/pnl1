@@ -101,7 +101,7 @@ export default class EditableTextFile extends React.Component {
           </MenuItem>
           <MenuItem divider />
           <MenuItem data={"some_data"} onClick={menuRun}>
-            Run |>
+            Run ▶️
           </MenuItem>
         </ContextMenu>
       </article>
