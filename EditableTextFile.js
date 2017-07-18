@@ -48,6 +48,9 @@ export default class EditableTextFile extends React.Component {
       console.log('tab =', tab.element)
     })
   }
+  runCommand () {
+    return
+  }
   setContainerTitle (title) {
     this.props.glContainer.setTitle(title)
   }
@@ -59,6 +62,7 @@ export default class EditableTextFile extends React.Component {
   }
   render () {
     let onChange = this.onChange.bind(this)
+    let menuRun = this.runCommand.bind(this)
     const menuFileSave = () => {
       fs.writeFile(this.props.filepath, this.state.unsavedContent, err => console.log)
     }
@@ -92,9 +96,12 @@ export default class EditableTextFile extends React.Component {
           <MenuItem data={"some_data"} onClick={menuFileReset}>
             Reset
           </MenuItem>
-          <MenuItem divider />
           <MenuItem data={"some_data"} onClick={menuFileRestore}>
             Restore (original)
+          </MenuItem>
+          <MenuItem divider />
+          <MenuItem data={"some_data"} onClick={menuRun}>
+            Run |>
           </MenuItem>
         </ContextMenu>
       </article>
